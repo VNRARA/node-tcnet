@@ -451,8 +451,10 @@ export class TCNetDataPacketMixerData extends TCNetDataPacket {
     micEQLow: number;
     masterAudioLevel: number;
     masterFaderLevel: number;
+
     linkCueA: number;
     linkCueB: number;
+
     masterFilter: number;
     masterCueA: number;
     masterCueB: number;
@@ -460,9 +462,11 @@ export class TCNetDataPacketMixerData extends TCNetDataPacket {
     masterIsolatorHi: number;
     masterIsolatorMid: number;
     masterIsolatorLow: number;
+
     filterHPF: number;
     filterLPF: number;
     filterRes: number;
+
     sendFXEffect: number;
     sendFXExt1: number;
     sendFXExt2: number;
@@ -475,9 +479,11 @@ export class TCNetDataPacketMixerData extends TCNetDataPacket {
     sendReturn3Type: number;
     sendReturn3OnOff: number;
     sendReturn3Level: number;
+
     channelFaderCurve: number;
     crossFaderCurve: number;
     crossFader: number;
+
     beatFxOnOff: number;
     beatFxLevelDepth: number;
     beatFxChannelSelect: number;
@@ -485,14 +491,106 @@ export class TCNetDataPacketMixerData extends TCNetDataPacket {
     beatFxFreqHi: number;
     beatFxFreqMid: number;
     beatFxFreqLow: number;
+
     headphonesPreEq: number;
     headphonesALevel: number;
     headphonesAMix: number;
     headphonesBLevel: number;
     headphonesBMix: number;
+
     boothLevel: number;
     boothEqHi: number;
     boothEqLow: number;
+
+    channel1SourceSelect: number;
+    channel1AudioLevel: number;
+    channel1FaderLevel: number;
+    channel1TrimLevel: number;
+    channel1CompLevel: number;
+    channel1EqHiLevel: number;
+    channel1EqHiMidLevel: number;
+    channel1EqLowMidLevel: number;
+    channel1EqLowLevel: number;
+    channel1FilterColor: number;
+    channel1Send: number;
+    channel1CueA: number;
+    channel1CueB: number;
+    channel1CrossfaderAssign: number;
+
+    channel2SourceSelect: number;
+    channel2AudioLevel: number;
+    channel2FaderLevel: number;
+    channel2TrimLevel: number;
+    channel2CompLevel: number;
+    channel2EqHiLevel: number;
+    channel2EqHiMidLevel: number;
+    channel2EqLowMidLevel: number;
+    channel2EqLowLevel: number;
+    channel2FilterColor: number;
+    channel2Send: number;
+    channel2CueA: number;
+    channel2CueB: number;
+    channel2CrossfaderAssign: number;
+
+    channel3SourceSelect: number;
+    channel3AudioLevel: number;
+    channel3FaderLevel: number;
+    channel3TrimLevel: number;
+    channel3CompLevel: number;
+    channel3EqHiLevel: number;
+    channel3EqHiMidLevel: number;
+    channel3EqLowMidLevel: number;
+    channel3EqLowLevel: number;
+    channel3FilterColor: number;
+    channel3Send: number;
+    channel3CueA: number;
+    channel3CueB: number;
+    channel3CrossfaderAssign: number;
+
+    channel4SourceSelect: number;
+    channel4AudioLevel: number;
+    channel4FaderLevel: number;
+    channel4TrimLevel: number;
+    channel4CompLevel: number;
+    channel4EqHiLevel: number;
+    channel4EqHiMidLevel: number;
+    channel4EqLowMidLevel: number;
+    channel4EqLowLevel: number;
+    channel4FilterColor: number;
+    channel4Send: number;
+    channel4CueA: number;
+    channel4CueB: number;
+    channel4CrossfaderAssign: number;
+
+    channel5SourceSelect: number;
+    channel5AudioLevel: number;
+    channel5FaderLevel: number;
+    channel5TrimLevel: number;
+    channel5CompLevel: number;
+    channel5EqHiLevel: number;
+    channel5EqHiMidLevel: number;
+    channel5EqLowMidLevel: number;
+    channel5EqLowLevel: number;
+    channel5FilterColor: number;
+    channel5Send: number;
+    channel5CueA: number;
+    channel5CueB: number;
+    channel5CrossfaderAssign: number;
+
+    channel6SourceSelect: number;
+    channel6AudioLevel: number;
+    channel6FaderLevel: number;
+    channel6TrimLevel: number;
+    channel6CompLevel: number;
+    channel6EqHiLevel: number;
+    channel6EqHiMidLevel: number;
+    channel6EqLowMidLevel: number;
+    channel6EqLowLevel: number;
+    channel6FilterColor: number;
+    channel6Send: number;
+    channel6CueA: number;
+    channel6CueB: number;
+    channel6CrossfaderAssign: number;
 
     read(): void {
 
@@ -550,6 +648,96 @@ export class TCNetDataPacketMixerData extends TCNetDataPacket {
         this.boothLevel = this.buffer.readUInt8(112);
         this.boothEqHi = this.buffer.readUInt8(113);
         this.boothEqLow = this.buffer.readUInt8(114);
+
+        this.channel1SourceSelect = this.buffer.readUInt8(125);
+        this.channel1AudioLevel = this.buffer.readUInt8(126);
+        this.channel1FaderLevel = this.buffer.readUInt8(127);
+        this.channel1TrimLevel = this.buffer.readUInt8(128);
+        this.channel1CompLevel = this.buffer.readUInt8(129);
+        this.channel1EqHiLevel = this.buffer.readUInt8(130);
+        this.channel1EqHiMidLevel = this.buffer.readUInt8(131);
+        this.channel1EqLowMidLevel = this.buffer.readUInt8(132);
+        this.channel1EqLowLevel = this.buffer.readUInt8(133);
+        this.channel1FilterColor = this.buffer.readUInt8(134);
+        this.channel1Send = this.buffer.readUInt8(135);
+        this.channel1CueA = this.buffer.readUInt8(136);
+        this.channel1CueB = this.buffer.readUInt8(137);
+        this.channel1CrossfaderAssign = this.buffer.readUInt8(138);
+
+        this.channel2SourceSelect = this.buffer.readUInt8(149);
+        this.channel2AudioLevel = this.buffer.readUInt8(150);
+        this.channel2FaderLevel = this.buffer.readUInt8(151);
+        this.channel2TrimLevel = this.buffer.readUInt8(152);
+        this.channel2CompLevel = this.buffer.readUInt8(153);
+        this.channel2EqHiLevel = this.buffer.readUInt8(154);
+        this.channel2EqHiMidLevel = this.buffer.readUInt8(155);
+        this.channel2EqLowMidLevel = this.buffer.readUInt8(156);
+        this.channel2EqLowLevel = this.buffer.readUInt8(157);
+        this.channel2FilterColor = this.buffer.readUInt8(158);
+        this.channel2Send = this.buffer.readUInt8(159);
+        this.channel2CueA = this.buffer.readUInt8(160);
+        this.channel2CueB = this.buffer.readUInt8(161);
+        this.channel2CrossfaderAssign = this.buffer.readUInt8(162);
+
+        this.channel3SourceSelect = this.buffer.readUInt8(173);
+        this.channel3AudioLevel = this.buffer.readUInt8(174);
+        this.channel3FaderLevel = this.buffer.readUInt8(175);
+        this.channel3TrimLevel = this.buffer.readUInt8(176);
+        this.channel3CompLevel = this.buffer.readUInt8(177);
+        this.channel3EqHiLevel = this.buffer.readUInt8(178);
+        this.channel3EqHiMidLevel = this.buffer.readUInt8(179);
+        this.channel3EqLowMidLevel = this.buffer.readUInt8(180);
+        this.channel3EqLowLevel = this.buffer.readUInt8(181);
+        this.channel3FilterColor = this.buffer.readUInt8(182);
+        this.channel3Send = this.buffer.readUInt8(183);
+        this.channel3CueA = this.buffer.readUInt8(184);
+        this.channel3CueB = this.buffer.readUInt8(185);
+        this.channel3CrossfaderAssign = this.buffer.readUInt8(186);
+
+        this.channel4SourceSelect = this.buffer.readUInt8(197);
+        this.channel4AudioLevel = this.buffer.readUInt8(198);
+        this.channel4FaderLevel = this.buffer.readUInt8(199);
+        this.channel4TrimLevel = this.buffer.readUInt8(200);
+        this.channel4CompLevel = this.buffer.readUInt8(201);
+        this.channel4EqHiLevel = this.buffer.readUInt8(202);
+        this.channel4EqHiMidLevel = this.buffer.readUInt8(203);
+        this.channel4EqLowMidLevel = this.buffer.readUInt8(204);
+        this.channel4EqLowLevel = this.buffer.readUInt8(205);
+        this.channel4FilterColor = this.buffer.readUInt8(206);
+        this.channel4Send = this.buffer.readUInt8(207);
+        this.channel4CueA = this.buffer.readUInt8(208);
+        this.channel4CueB = this.buffer.readUInt8(209);
+        this.channel4CrossfaderAssign = this.buffer.readUInt8(210);
+
+        this.channel5SourceSelect = this.buffer.readUInt8(221);
+        this.channel5AudioLevel = this.buffer.readUInt8(222);
+        this.channel5FaderLevel = this.buffer.readUInt8(223);
+        this.channel5TrimLevel = this.buffer.readUInt8(224);
+        this.channel5CompLevel = this.buffer.readUInt8(225);
+        this.channel5EqHiLevel = this.buffer.readUInt8(226);
+        this.channel5EqHiMidLevel = this.buffer.readUInt8(227);
+        this.channel5EqLowMidLevel = this.buffer.readUInt8(228);
+        this.channel5EqLowLevel = this.buffer.readUInt8(229);
+        this.channel5FilterColor = this.buffer.readUInt8(230);
+        this.channel5Send = this.buffer.readUInt8(231);
+        this.channel5CueA = this.buffer.readUInt8(232);
+        this.channel5CueB = this.buffer.readUInt8(233);
+        this.channel5CrossfaderAssign = this.buffer.readUInt8(234);
+
+        this.channel6SourceSelect = this.buffer.readUInt8(245);
+        this.channel6AudioLevel = this.buffer.readUInt8(246);
+        this.channel6FaderLevel = this.buffer.readUInt8(247);
+        this.channel6TrimLevel = this.buffer.readUInt8(248);
+        this.channel6CompLevel = this.buffer.readUInt8(249);
+        this.channel6EqHiLevel = this.buffer.readUInt8(250);
+        this.channel6EqHiMidLevel = this.buffer.readUInt8(251);
+        this.channel6EqLowMidLevel = this.buffer.readUInt8(252);
+        this.channel6EqLowLevel = this.buffer.readUInt8(253);
+        this.channel6FilterColor = this.buffer.readUInt8(254);
+        this.channel6Send = this.buffer.readUInt8(255);
+        this.channel6CueA = this.buffer.readUInt8(256);
+        this.channel6CueB = this.buffer.readUInt8(257);
+        this.channel6CrossfaderAssign = this.buffer.readUInt8(258);
 
     }
     write(): void {
