@@ -1,5 +1,8 @@
+import Color = require("color");
 import { assert } from "console";
 import { generateKey } from "crypto";
+import { arrayBuffer } from "stream/consumers";
+import { toColor } from "./utils";
 
 export enum TCNetMessageType {
     OptIn = 2,
@@ -755,75 +758,75 @@ export class TCNetDataPacketCueData extends TCNetDataPacket {
     cue1Type: number;
     cue1InTime: number;
     cue1OutTime: number;
-    cue1Color: number;
+    cue1Color: Color;
     cue2Type: number;
     cue2InTime: number;
     cue2OutTime: number;
-    cue2Color: number;
+    cue2Color: Color;
     cue3Type: number;
     cue3InTime: number;
     cue3OutTime: number;
-    cue3Color: number;
+    cue3Color: Color;
     cue4Type: number;
     cue4InTime: number;
     cue4OutTime: number;
-    cue4Color: number;
+    cue4Color: Color;
     cue5Type: number;
     cue5InTime: number;
     cue5OutTime: number;
-    cue5Color: number;
+    cue5Color: Color;
     cue6Type: number;
     cue6InTime: number;
     cue6OutTime: number;
-    cue6Color: number;
+    cue6Color: Color;
     cue7Type: number;
     cue7InTime: number;
     cue7OutTime: number;
-    cue7Color: number;
+    cue7Color: Color;
     cue8Type: number;
     cue8InTime: number;
     cue8OutTime: number;
-    cue8Color: number;
+    cue8Color: Color;
     cue9Type: number;
     cue9InTime: number;
     cue9OutTime: number;
-    cue9Color: number;
+    cue9Color: Color;
     cue10Type: number;
     cue10InTime: number;
     cue10OutTime: number;
-    cue10Color: number;
+    cue10Color: Color;
     cue11Type: number;
     cue11InTime: number;
     cue11OutTime: number;
-    cue11Color: number;
+    cue11Color: Color;
     cue12Type: number;
     cue12InTime: number;
     cue12OutTime: number;
-    cue12Color: number;
+    cue12Color: Color;
     cue13Type: number;
     cue13InTime: number;
     cue13OutTime: number;
-    cue13Color: number;
+    cue13Color: Color;
     cue14Type: number;
     cue14InTime: number;
     cue14OutTime: number;
-    cue14Color: number;
+    cue14Color: Color;
     cue15Type: number;
     cue15InTime: number;
     cue15OutTime: number;
-    cue15Color: number;
+    cue15Color: Color;
     cue16Type: number;
     cue16InTime: number;
     cue16OutTime: number;
-    cue16Color: number;
+    cue16Color: Color;
     cue17Type: number;
     cue17InTime: number;
     cue17OutTime: number;
-    cue17Color: number;
+    cue17Color: Color;
     cue18Type: number;
     cue18InTime: number;
     cue18OutTime: number;
-    cue18Color: number;
+    cue18Color: Color;
 
     read(): void {
         this.loopIn = this.buffer.readUInt32LE(42);
@@ -832,77 +835,91 @@ export class TCNetDataPacketCueData extends TCNetDataPacket {
         this.cue1Type = this.buffer.readUInt8(47);
         this.cue1InTime = this.buffer.readUInt32LE(49);
         this.cue1OutTime = this.buffer.readUInt32LE(53);
-        //this.cue1Color = this.toColor(this.buffer.subarray(58, 60)); // 3 byte value
-
+        this.cue1Color = toColor(this.buffer.subarray(58, 60));
         this.cue2Type = this.buffer.readUInt32LE(32);
         this.cue2InTime = this.buffer.readUInt32LE(32);
         this.cue2OutTime = this.buffer.readUInt32LE(32);
-        this.cue2Color = this.buffer.readUInt32LE(32);
+        this.cue2Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue3Type = this.buffer.readUInt32LE(32);
         this.cue3InTime = this.buffer.readUInt32LE(32);
         this.cue3OutTime = this.buffer.readUInt32LE(32);
-        this.cue3Color = this.buffer.readUInt32LE(32);
+        this.cue3Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue4Type = this.buffer.readUInt32LE(32);
         this.cue4InTime = this.buffer.readUInt32LE(32);
         this.cue4OutTime = this.buffer.readUInt32LE(32);
-        this.cue4Color = this.buffer.readUInt32LE(32);
+        this.cue4Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue5Type = this.buffer.readUInt32LE(32);
         this.cue5InTime = this.buffer.readUInt32LE(32);
         this.cue5OutTime = this.buffer.readUInt32LE(32);
-        this.cue5Color = this.buffer.readUInt32LE(32);
+        this.cue5Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue6Type = this.buffer.readUInt32LE(32);
         this.cue6InTime = this.buffer.readUInt32LE(32);
         this.cue6OutTime = this.buffer.readUInt32LE(32);
-        this.cue6Color = this.buffer.readUInt32LE(32);
+        this.cue6Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue7Type = this.buffer.readUInt32LE(32);
         this.cue7InTime = this.buffer.readUInt32LE(32);
         this.cue7OutTime = this.buffer.readUInt32LE(32);
-        this.cue7Color = this.buffer.readUInt32LE(32);
+        this.cue7Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue8Type = this.buffer.readUInt32LE(32);
         this.cue8InTime = this.buffer.readUInt32LE(32);
         this.cue8OutTime = this.buffer.readUInt32LE(32);
-        this.cue8Color = this.buffer.readUInt32LE(32);
+        this.cue8Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue9Type = this.buffer.readUInt32LE(32);
         this.cue9InTime = this.buffer.readUInt32LE(32);
         this.cue9OutTime = this.buffer.readUInt32LE(32);
-        this.cue9Color = this.buffer.readUInt32LE(32);
+        this.cue9Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue10Type = this.buffer.readUInt32LE(32);
         this.cue10InTime = this.buffer.readUInt32LE(32);
         this.cue10OutTime = this.buffer.readUInt32LE(32);
-        this.cue10Color = this.buffer.readUInt32LE(32);
+        this.cue10Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue11Type = this.buffer.readUInt32LE(32);
         this.cue11InTime = this.buffer.readUInt32LE(32);
         this.cue11OutTime = this.buffer.readUInt32LE(32);
-        this.cue11Color = this.buffer.readUInt32LE(32);
+        this.cue11Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue12Type = this.buffer.readUInt32LE(32);
         this.cue12InTime = this.buffer.readUInt32LE(32);
         this.cue12OutTime = this.buffer.readUInt32LE(32);
-        this.cue12Color = this.buffer.readUInt32LE(32);
+        this.cue12Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue13Type = this.buffer.readUInt32LE(32);
         this.cue13InTime = this.buffer.readUInt32LE(32);
         this.cue13OutTime = this.buffer.readUInt32LE(32);
-        this.cue13Color = this.buffer.readUInt32LE(32);
+        this.cue13Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue14Type = this.buffer.readUInt32LE(32);
         this.cue14InTime = this.buffer.readUInt32LE(32);
         this.cue14OutTime = this.buffer.readUInt32LE(32);
-        this.cue14Color = this.buffer.readUInt32LE(32);
+        this.cue14Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue15Type = this.buffer.readUInt32LE(32);
         this.cue15InTime = this.buffer.readUInt32LE(32);
         this.cue15OutTime = this.buffer.readUInt32LE(32);
-        this.cue15Color = this.buffer.readUInt32LE(32);
+        this.cue15Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue16Type = this.buffer.readUInt32LE(32);
         this.cue16InTime = this.buffer.readUInt32LE(32);
         this.cue16OutTime = this.buffer.readUInt32LE(32);
-        this.cue16Color = this.buffer.readUInt32LE(32);
+        this.cue16Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue17Type = this.buffer.readUInt32LE(32);
         this.cue17InTime = this.buffer.readUInt32LE(32);
         this.cue17OutTime = this.buffer.readUInt32LE(32);
-        this.cue17Color = this.buffer.readUInt32LE(32);
+        this.cue17Color = toColor(this.buffer.subarray(58, 60));
+
         this.cue18Type = this.buffer.readUInt32LE(32);
         this.cue18InTime = this.buffer.readUInt32LE(32);
         this.cue18OutTime = this.buffer.readUInt32LE(32);
-        this.cue18Color = this.buffer.readUInt32LE(32);
-
+        this.cue18Color = toColor(this.buffer.subarray(58, 60));
     }
 
     write(): void {
@@ -914,12 +931,10 @@ export class TCNetDataPacketCueData extends TCNetDataPacket {
 
 }
 
-
-
-
 export interface Constructable {
     new(...args: any[]): any;
 }
+
 
 export const TCNetPackets: Record<TCNetMessageType, Constructable | null> = {
     [TCNetMessageType.OptIn]: TCNetOptInPacket,

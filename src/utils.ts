@@ -1,5 +1,6 @@
 import * as broadcastAddress from "broadcast-address";
 import { networkInterfaces, platform } from "os";
+import Color = require("color");
 
 export function interfaceAddress(ifname: string): string {
     const os = platform();
@@ -19,4 +20,11 @@ export function interfaceAddress(ifname: string): string {
     } else {
         return broadcastAddress(ifname);
     }
+}
+
+export function toColor(buffer: Buffer): Color {
+    if (buffer.length != 3) {
+        throw new Error("amount of bytes not correct for RGB");
+    }
+    return Color.rgb(buffer.readUInt8(0), buffer.readUInt8(1), buffer.readUInt8(2));
 }
