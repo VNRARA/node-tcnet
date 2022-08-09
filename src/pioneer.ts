@@ -127,7 +127,7 @@ export class PioneerDJTCClient extends EventEmitter {
      */
     async mixerData(): Promise<MixerData> {
         const response = <TCNetDataPacketMixerData>(
-            await this.client().requestData(TCNetDataPacketType.MixerData, 2)
+            await this.client().requestData(TCNetDataPacketType.MixerData, 0)
         );
         return {
             ...response,
